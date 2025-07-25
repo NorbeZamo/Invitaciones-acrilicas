@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+  <title>Invitaciones Acrílicas - Style Symbols</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f9f9f9;
+    }
+    .section {
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      max-width: 700px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+    select, input[type='number'] {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div style="text-align:center; margin-bottom: 20px;">
+    <img src="logo negro2.png" alt="Style Symbols Logo" width="150" style="margin-top: 20px;">
+    <h1 style="margin: 10px 0; font-size: 28px; color: #4b0082;">Invitaciones Acrílicas de Style Symbols</h1>
+  </div>
+  <div class="section">
+
+    <label for="tamano">1. Tamaño</label>
+    <select id="tamano" onchange="calcularPrecio()">
+      <option value="0">127x178 mm – 5x7 pulgadas-Tamaño Estandar</option>
+      <option value="0">150x150 mm (5,9x5,9 pulgadas)</option>
+      <option value="0.6">140x216 mm (5,5x8,5 pulgadas) + $0.60</option>
+    </select>
+
+    <label for="cantidad">2. Cantidad</label>
+    <input type="number" id="cantidad" min="30" placeholder="Ej. 100" onchange="calcularPrecio()" oninput="calcularPrecio()">
+
+    <label for="espesor">3. Espesor</label>
+    <select id="espesor" onchange="calcularPrecio()">
+      <option value="0">0.5 mm Delgadas</option>
+      <option value="0.5">1 mm + $0.50 Espesor Estandar</option>
+      <option value="1.7">2 mm + $1.70</option>
+      <option value="2.3">3 mm + $2.30</option>
+    </select>
+
+    <label for="material">4. Color del Acrilico</label>
+    <select id="material" onchange="calcularPrecio()">
+      <option value="0">Transparente</option>
+      <option value="0.2">Escarchado + $0.20</option>
+      <option value="0.2">Negro + $0.20</option>
+      <option value="0.2">Blanco + $0.20</option>
+      <option value="0.2">Espejo dorado + $0.20</option>
+      <option value="0.2">Espejo plateado + $0.20</option>
+      <option value="0.2">Espejo oro rosa + $0.20</option>
+      <option value="0.4">Coloreado (impreso) + $0.40</option>
+    </select>
+
+    <label for="forma">5. Forma</label>
+    <select id="forma" onchange="calcularPrecio()">
+      <option value="0">Rectángulo (Gratis)- Forma Estandar</option>
+      <option value="0.3">Arco +$0.30</option>
+      <option value="0.3">Medio Arco +$0.30</option>
+      <option value="0.3">Doble Arco +$0.30</option>
+      <option value="0.3">Ronda +$0.30</option>
+      <option value="0.3">Soporte +$0.30</option>
+      <option value="0.3">Marco Vintage +$0.30</option>
+      <option value="0.3">Geometría +$0.30</option>
+    </select>
+
+    <label for="impresion">6. Método de Impresión</label>
+    <select id="impresion" onchange="calcularPrecio()">
+      <option value="0">UV</option>
+      <option value="0.4">Serigrafía + $0.40</option>
+      <option value="0.6">Lámina + $0.60</option>
+      <option value="0.7">UV + Serigrafía + $0.70</option>
+      <option value="0.9">UV + Foil + $0.90</option>
+    </select>
+
+    <label for="urgente">21. Servicio Acelerado</label>
+    <select id="urgente" onchange="calcularPrecio()">
+      <option value="0">No</option>
+      <option value="20">Sí + $20.00</option>
+    </select>
+
+    <label><input type="checkbox" id="mostrar_sobres" onchange="toggle('sobres_box'); calcularPrecio();"> Incluir sobres</label>
+    <div id="sobres_box" class="hidden">
+      <label for="sobres">Tipo de sobre</label>
+      <select id="sobres" onchange="calcularPrecio()">
+        <option value="0.25">Color estándar +$0.25</option>
+        <option value="0.70">Otros colores +$0.70</option>
+      </select>
+    </div>
+
+    <label><input type="checkbox" id="mostrar_forro" onchange="toggle('forro_box'); calcularPrecio();"> Incluir forro de sobre</label>
+    <div id="forro_box" class="hidden">
+      <label for="forro">Tipo de forro</label>
+      <select id="forro" onchange="calcularPrecio()">
+        <option value="0.45">Forro brillante +$0.45</option>
+      </select>
+    </div>
+
+    <label><input type="checkbox" id="mostrar_rsvp" onchange="toggle('rsvp_box'); calcularPrecio();"> Incluir sobre RSVP</label>
+    <div id="rsvp_box" class="hidden">
+      <label for="rsvp">Tipo de RSVP</label>
+      <select id="rsvp" onchange="calcularPrecio()">
+        <option value="0.15">Color RSVP +$0.15</option>
+      </select>
+    </div>
+
+    <label><input type="checkbox" id="mostrar_tarjetas" onchange="toggle('tarjetas_box'); calcularPrecio();"> Incluir tarjetas adicionales</label>
+    <div id="tarjetas_box" class="hidden">
+      <label for="tarjeta_extra">Tipo de impresión para tarjeta adicional</label>
+      <select id="tarjeta_extra" onchange="calcularPrecio()">
+        <option value="0.30">Sin impresión +$0.30</option>
+        <option value="0.30">Digital +$0.30</option>
+        <option value="0.50">Lámina +$0.50</option>
+        <option value="0.70">UV +$0.70</option>
+        <option value="1.00">Tipográfica +$1.00</option>
+        <option value="0.85">Termográfica +$0.85</option>
+      </select>
+    </div>
+
+    <label><input type="checkbox" id="mostrar_etiqueta" onchange="toggle('etiqueta_box'); toggle('grosor_3d_box'); calcularPrecio();"> Incluir etiqueta adhesiva acrílica 3D</label>
+    <div id="etiqueta_box" class="hidden">
+      <label for="etiqueta">Tipo de etiqueta</label>
+      <select id="etiqueta" onchange="calcularPrecio()">
+        <option value="0">No</option>
+        <option value="0.40">Monograma 2" +$0.40</option>
+        <option value="0.80">Nombre 4" +$0.80</option>
+      </select>
+    </div>
+    <div id="grosor_3d_box" class="hidden">
+      <label for="grosor_3d">Grosor de la pegatina 3D</label>
+      <select id="grosor_3d" onchange="calcularPrecio()">
+        <option value="0">1 mm</option>
+        <option value="0.10">2 mm +$0.10</option>
+      </select>
+    </div>
+
+    <label><input type="checkbox" id="mostrar_accesorios" onchange="toggle('accesorios_box'); calcularPrecio();"> Incluir accesorios</label>
+    <div id="accesorios_box" class="hidden">
+      <label for="banda">Banda para el vientre</label>
+      <select id="banda" onchange="calcularPrecio()">
+        <option value="0">No</option>
+        <option value="0.30">Sin impresión +$0.30</option>
+        <option value="0.30">Digital +$0.30</option>
+        <option value="0.70">Lámina +$0.70</option>
+        <option value="0.70">UV +$0.70</option>
+        <option value="0.85">Termográfica +$0.85</option>
+      </select>
+      <label for="etiqueta50">Etiqueta (50×50 mm)</label>
+      <select id="etiqueta50" onchange="calcularPrecio()">
+        <option value="0">No</option>
+        <option value="0.10">Sin impresión +$0.10</option>
+        <option value="0.10">Digital +$0.10</option>
+        <option value="0.40">Lámina +$0.40</option>
+        <option value="0.40">UV +$0.40</option>
+        <option value="0.55">Termográfica +$0.55</option>
+      </select>
+      <label for="respaldo">Respaldo de etiqueta</label>
+      <select id="respaldo" onchange="calcularPrecio()">
+        <option value="0">No</option>
+        <option value="0.10">General +$0.10</option>
+        <option value="0.45">Plata brillante +$0.45</option>
+        <option value="0.45">Oro rosa brillante +$0.45</option>
+        <option value="0.45">Rosa intenso con purpurina +$0.45</option>
+        <option value="0.45">Oro brillante +$0.45</option>
+        <option value="0.45">Rojo brillante +$0.45</option>
+        <option value="0.45">Negro brillante +$0.45</option>
+        <option value="0.45">Champagne Gold Glitter +$0.45</option>
+        <option value="0.45">Glitter White +$0.45</option>
+        <option value="0.45">Glitter Ivory +$0.45</option>
+        <option value="0.45">Glitter Navy +$0.45</option>
+        <option value="0.30">Mirror Matte Gold +$0.30</option>
+        <option value="0.30">Mirror Matte Silver +$0.30</option>
+        <option value="0.30">Mirror Champagne +$0.30</option>
+        <option value="0.30">Mirror Light Ecru +$0.30</option>
+        <option value="0.30">Mirror Silver +$0.30</option>
+        <option value="0.30">Mirror Gold +$0.30</option>
+      </select>
+      <label for="soporte">Soporte de papel</label>
+      <select id="soporte" onchange="calcularPrecio()">
+        <option value="0">No</option>
+        <option value="0.30">Sí +$0.30</option>
+      </select>
+      <label for="cinta">Cintas y Cordeles</label>
+      <select id="cinta" onchange="calcularPrecio()">
+        <option value="0">No</option>
+        <option value="0.10">Raso ¾″ +$0.10</option>
+        <option value="0.10">Satén ¼″ +$0.10</option>
+        <option value="0.20">Satén 1,5″ +$0.20</option>
+        <option value="0.15">Cuero 3 mm +$0.15</option>
+        <option value="0.10">Hilo 2 mm +$0.10</option>
+        <option value="0.10">Brillante ¾″ +$0.10</option>
+        <option value="0.10">Brillante ¼″ +$0.10</option>
+        <option value="0.15">Hilo dorado 0,2 mm +$0.15</option>
+      </select>
+      <label for="sello">Sello de cera</label>
+      <select id="sello" onchange="calcularPrecio()">
+        <option value="0">No</option>
+        <option value="0.50">Blanco perla +$0.50</option>
+        <option value="0.50">Plata +$0.50</option>
+        <option value="0.50">Oro +$0.50</option>
+        <option value="0.50">Óxido +$0.50</option>
+        <option value="0.50">Rubor +$0.50</option>
+        <option value="0.50">Rosa +$0.50</option>
+        <option value="0.50">Malva +$0.50</option>
+        <option value="0.50">Verde musgo +$0.50</option>
+        <option value="0.50">Borgoña +$0.50</option>
+        <option value="0.50">Negro +$0.50</option>
+        <option value="0.50">Verde claro +$0.50</option>
+        <option value="0.50">Verde esmeralda +$0.50</option>
+        <option value="0.50">Azul pavo real +$0.50</option>
+        <option value="0.50">Marina +$0.50</option>
+      </select>
+      <label for="broche">Broches</label>
+      <select id="broche" onchange="calcularPrecio()">
+        <option value="0">No</option>
+        <option value="0.30">SDK1 +$0.30</option>
+        <option value="0.90">SDKA 1½″ +$0.90</option>
+        <option value="0.45">SDK2 +$0.45</option>
+        <option value="0.45">SDKB 1″ +$0.45</option>
+        <option value="0.35">SDKC ⅝″ +$0.35</option>
+      </select>
+      <label for="llave">Llaves de bronce</label>
+      <select id="llave" onchange="calcularPrecio()">
+        <option value="0">No</option>
+        <option value="0.15">1″ +$0.15</option>
+        <option value="0.25">2″ +$0.25</option>
+        <option value="0.40">3″ +$0.40</option>
+      </select>
+      <label for="esquina">Esquina de papel</label>
+      <select id="esquina" onchange="calcularPrecio()">
+        <option value="0">No</option>
+        <option value="0.20">Estilo 1 - 2 esquinas +$0.20</option>
+        <option value="0.20">Estilo 2 - 2 esquinas +$0.20</option>
+        <option value="0.40">Estilo 1 - 4 esquinas +$0.40</option>
+        <option value="0.40">Estilo 2 - 4 esquinas +$0.40</option>
+      </select>
+    </div>
+
+    <h2 id="resultado"></h2>
+  </div>
+<script>
+function toggle(id) {
+  const box = document.getElementById(id);
+  if (box) box.classList.toggle('hidden');
+}
+
+function calcularPrecio() {
+  const cantidad = parseInt(document.getElementById('cantidad')?.value) || 0;
+  const rangos = [
+    { min: 30, max: 49, base: 1.70 },
+    { min: 50, max: 99, base: 1.20 },
+    { min: 100, max: 149, base: 0.90 },
+    { min: 150, max: 199, base: 0.85 },
+    { min: 200, max: 299, base: 0.80 },
+    { min: 300, max: 499, base: 0.77 },
+    { min: 500, max: 999, base: 0.72 },
+    { min: 1000, max: 1499, base: 0.68 }
+  ];
+
+  let base = 0;
+  for (let r of rangos) {
+    if (cantidad >= r.min && cantidad <= r.max) {
+      base = r.base;
+      break;
+    }
+  }
+
+  if (base === 0) {
+    document.getElementById("resultado").innerText = "Cantidad fuera de rango (mínimo 30)";
+    return;
+  }
+
+  let extras = 0;
+  const camposBase = ["tamano", "espesor", "material", "forma", "impresion"];
+  camposBase.forEach(id => {
+    extras += parseFloat(document.getElementById(id)?.value || 0);
+  });
+
+  if (document.getElementById('mostrar_sobres')?.checked) extras += parseFloat(document.getElementById('sobres')?.value || 0);
+  if (document.getElementById('mostrar_forro')?.checked) extras += parseFloat(document.getElementById('forro')?.value || 0);
+  if (document.getElementById('mostrar_rsvp')?.checked) extras += parseFloat(document.getElementById('rsvp')?.value || 0);
+  if (document.getElementById('mostrar_tarjetas')?.checked) extras += parseFloat(document.getElementById('tarjeta_extra')?.value || 0);
+
+  if (document.getElementById('mostrar_etiqueta')?.checked) {
+    extras += parseFloat(document.getElementById('etiqueta')?.value || 0);
+    extras += parseFloat(document.getElementById('grosor_3d')?.value || 0);
+  }
+
+  if (document.getElementById('mostrar_accesorios')?.checked) {
+    const accesorios = [
+      "banda", "etiqueta50", "respaldo", "soporte", "sello", "broche",
+      "llave", "esquina", "cinta"
+    ];
+    accesorios.forEach(id => {
+      extras += parseFloat(document.getElementById(id)?.value || 0);
+    });
+  }
+
+  const urgente = parseFloat(document.getElementById('urgente')?.value || 0);
+  const precioUnitario = base + extras;
+  const precioBaseTotal = precioUnitario * cantidad + urgente; // Urgente se suma solo una vez
+
+  let gananciaPorciento = 50; // Siempre 50%
+  const gananciaTotal = precioBaseTotal * (gananciaPorciento / 100);
+  const precioFinal = (precioBaseTotal + gananciaTotal).toFixed(2);
+  const precioConGanancia = ((precioBaseTotal + gananciaTotal) / cantidad).toFixed(2);
+
+  document.getElementById("resultado").innerText = `Precio total: $${precioFinal} USD / $${precioConGanancia} cada una`;
+}
+window.onload = calcularPrecio; // Calcula al cargar la página
+</script>
+</body>
+</html>
